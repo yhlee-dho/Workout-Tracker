@@ -1,5 +1,5 @@
 const express = require('express');
-const mongojs = require('mongojs');
+// const mongojs = require('mongojs');
 const mongoose = require("mongoose");
 
 
@@ -12,8 +12,8 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-// atlas for mongodb sandbox
-mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://workoutTracker:12345@cluster0-4ygsj.mongodb.net/test?retryWrites=true&w=majority", { useNewUrlParser: true });
+// mongodb
+mongoose.connect(process.env.MONGODB_URI || `mongodb://localhost:27017/workout`, { useNewUrlParser: true });
 
 app.use(require("./routes/api-routes.js"));
 app.use(require("./routes/html-routes.js"));
