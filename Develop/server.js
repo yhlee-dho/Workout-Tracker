@@ -12,8 +12,8 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-// mongoose.connect(process.env.MONGODB_URI || "mongodb://workout:workout123@ds033767.mlab.com:33767/heroku_jrjwb66m", { useNewUrlParser: true });
-mongoose.connect(process.env.MONGODB_URI || "mongodb://workout:workout123@ds033767.mlab.com:33767/heroku_jrjwb66m", { useNewUrlParser: true });
+// atlas for mongodb sandbox
+mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://workoutTracker:12345@cluster0-4ygsj.mongodb.net/test?retryWrites=true&w=majority", { useNewUrlParser: true });
 
 app.use(require("./routes/api-routes.js"));
 app.use(require("./routes/html-routes.js"));
